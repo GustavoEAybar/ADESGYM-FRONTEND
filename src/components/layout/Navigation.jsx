@@ -1,12 +1,23 @@
-import { Navbar, Container, Offcanvas, Button, Form, Nav,NavDropdown, Link } from 'react-bootstrap';
+import {
+  Navbar,
+  Container,
+  Offcanvas,
+  Nav,
+  NavDropdown,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
-    return (
-        <>
-             {[false, 'sm', 'md', 'lg', 'xl', 'xxl'].map((expand) => (
-        <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3">
+  return (
+    <>
+      {[false].map((expand) => (
+        <Navbar
+         key={expand}
+         expand={expand}
+         className="bg-body-tertiary mb-3"
+         >
           <Container fluid>
-            <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+            <Navbar.Brand href="/">Navbar Offcanvas</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -36,22 +47,13 @@ const Navigation = () => {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
-                <Form className="d-flex">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
       ))}
-        </>
-    );
+    </>
+  );
 };
 
 export default Navigation;
